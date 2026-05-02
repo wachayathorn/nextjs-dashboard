@@ -38,10 +38,10 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading dashboard...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -49,27 +49,27 @@ export default function Dashboard() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="text-destructive text-xl mb-4">Error</div>
-          <p className="text-muted-foreground">{error}</p>
+          <div className="text-red-600 text-xl mb-4">Error</div>
+          <p className="text-gray-500">{error}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-foreground">Expense Dashboard</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Expense Dashboard</h1>
             </div>
             <button 
               onClick={() => setShowTransactionForm(true)}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md flex items-center gap-2"
+              className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded-md flex items-center gap-2"
             >
               <Plus className="h-4 w-4" />
               Add Transaction
@@ -84,7 +84,7 @@ export default function Dashboard() {
           <div className="card p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Income</p>
+                <p className="text-sm font-medium text-gray-500">Total Income</p>
                 <p className="text-2xl font-bold text-green-600">
                   {formatCurrency(statistics?.totalIncome || 0)}
                 </p>
@@ -96,7 +96,7 @@ export default function Dashboard() {
           <div className="card p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Expense</p>
+                <p className="text-sm font-medium text-gray-500">Total Expense</p>
                 <p className="text-2xl font-bold text-red-600">
                   {formatCurrency(statistics?.totalExpense || 0)}
                 </p>
@@ -108,24 +108,24 @@ export default function Dashboard() {
           <div className="card p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Balance</p>
+                <p className="text-sm font-medium text-gray-500">Balance</p>
                 <p className={`text-2xl font-bold ${statistics?.balance && statistics.balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {formatCurrency(statistics?.balance || 0)}
                 </p>
               </div>
-              <DollarSign className="h-8 w-8 text-primary" />
+              <DollarSign className="h-8 w-8 text-blue-500" />
             </div>
           </div>
 
           <div className="card p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">This Month</p>
-                <p className="text-2xl font-bold text-primary">
+                <p className="text-sm font-medium text-gray-500">This Month</p>
+                <p className="text-2xl font-bold text-blue-500">
                   {statistics?.monthlyStats.length ? formatMonth(statistics.monthlyStats[statistics.monthlyStats.length - 1].month) : 'N/A'}
                 </p>
               </div>
-              <Calendar className="h-8 w-8 text-primary" />
+              <Calendar className="h-8 w-8 text-blue-500" />
             </div>
           </div>
         </div>
@@ -136,16 +136,16 @@ export default function Dashboard() {
             <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
             <div className="space-y-4">
               {recentTransactions.length === 0 ? (
-                <p className="text-muted-foreground text-center py-8">No transactions yet</p>
+                <p className="text-gray-500 text-center py-8">No transactions yet</p>
               ) : (
                 recentTransactions.map((transaction) => (
-                  <div key={transaction.id} className="flex items-center justify-between p-3 border rounded-lg">
+                  <div key={transaction.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className={`inline-block w-2 h-2 rounded-full ${transaction.type === 'income' ? 'bg-green-500' : 'bg-red-500'}`}></span>
                         <span className="font-medium">{transaction.description}</span>
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-gray-500">
                         {transaction.category} • {formatDate(transaction.date)}
                       </div>
                     </div>
@@ -167,11 +167,11 @@ export default function Dashboard() {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-medium">{category.category}</span>
-                      <span className="text-sm text-muted-foreground">{category.percentage.toFixed(1)}%</span>
+                      <span className="text-sm text-gray-500">{category.percentage.toFixed(1)}%</span>
                     </div>
-                    <div className="w-full bg-secondary rounded-full h-2">
+                    <div className="w-full bg-blue-100 rounded-full h-2">
                       <div 
-                        className="bg-primary h-2 rounded-full" 
+                        className="bg-blue-500 h-2 rounded-full" 
                         style={{ width: `${category.percentage}%` }}
                       ></div>
                     </div>

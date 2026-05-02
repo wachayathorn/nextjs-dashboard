@@ -144,7 +144,7 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
                   ...prev, 
                   amount: parseFloat(e.target.value) || 0 
                 }))}
-                className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="0.00"
               />
             </div>
@@ -156,7 +156,7 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
             <select
               value={formData.category}
               onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -173,7 +173,7 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
               type="text"
               value={formData.description}
               onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Enter description"
             />
           </div>
@@ -188,7 +188,7 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
                 ...prev, 
                 date: new Date(e.target.value) 
               }))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
 
@@ -201,13 +201,13 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
                 value={newTag}
                 onChange={(e) => setNewTag(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Add tag"
               />
               <button
                 type="button"
                 onClick={addTag}
-                className="p-2 bg-primary text-white rounded-md hover:bg-primary/90"
+                className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
               >
                 <Plus className="h-4 w-4" />
               </button>
@@ -245,7 +245,7 @@ export default function TransactionForm({ onClose, onSuccess }: TransactionFormP
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50"
             >
               {loading ? 'Creating...' : 'Create Transaction'}
             </button>

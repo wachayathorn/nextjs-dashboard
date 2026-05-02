@@ -1,3 +1,4 @@
 node_modules
-web/.next
-server/dist
+web/.next/
+server/dist/
+*.tsbuildinfo
