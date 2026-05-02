@@ -6,6 +6,7 @@ import { transactionApi } from '@/lib/api';
 import { formatCurrency, formatDate, formatMonth } from '@/lib/utils';
 import { Plus, TrendingUp, TrendingDown, DollarSign, Calendar } from 'lucide-react';
 import TransactionForm from '@/components/forms/transaction-form';
+import CategoryPieChart from '@/components/charts/category-pie-chart-chartjs';
 
 export default function Dashboard() {
   const [statistics, setStatistics] = useState<Statistics | null>(null);
@@ -161,27 +162,13 @@ export default function Dashboard() {
           {/* Category Breakdown */}
           <div className="card p-6">
             <h2 className="text-lg font-semibold mb-4">Category Breakdown</h2>
-            <div className="space-y-4">
-              {statistics?.categoryBreakdown.slice(0, 5).map((category) => (
-                <div key={category.category} className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-medium">{category.category}</span>
-                      <span className="text-sm text-gray-500">{category.percentage.toFixed(1)}%</span>
-                    </div>
-                    <div className="w-full bg-blue-100 rounded-full h-2">
-                      <div 
-                        className="bg-blue-500 h-2 rounded-full" 
-                        style={{ width: `${category.percentage}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="ml-4 font-semibold">
-                    {formatCurrency(category.amount)}
-                  </div>
-                </div>
-              ))}
-            </div>
+            {statistics?.categoryBreakdown && statistics.categoryBreakdown.length > 0 ? (
+              <CategoryPieChart data={statistics.categoryBreakdown} />
+            ) : (
+              <div className="flex items-center justify-center h-80">
+                <p className="text-gray-500 text-center">No category data available</p>
+              </div>
+            )}
           </div>
         </div>
       </main>
