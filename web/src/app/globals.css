@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 220 90% 10%;
+  --primary: 220 90% 56%;
+  --primary-foreground: 220 90% 98%;
+  --secondary: 220 90% 96%;
+  --secondary-foreground: 220 90% 10%;
+  --muted: 220 90% 96%;
+  --muted-foreground: 220 90% 46%;
+  --accent: 220 90% 96%;
+  --accent-foreground: 220 90% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 220 90% 98%;
+  --border: 220 90% 90%;
+  --input: 220 90% 90%;
+  --ring: 220 90% 56%;
+  --radius: 0.5rem;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: 'Inter', sans-serif;
+}
+
+.card {
+  @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.btn-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+}
+
+.input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
