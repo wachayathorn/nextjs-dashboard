@@ -1,57 +1,57 @@
 # Expense Dashboard
 
-ระบบ Dashboard สำหรับติดตามรายรับรายจ่ายแบบ POC พร้อมใช้งานจริง สร้างด้วย NextJS (Frontend) และ NestJS (Backend) ด้วยสถาปัตยกรรม OOP เต็มรูปแบบ
+A POC expense tracking dashboard ready for production use, built with NextJS (Frontend) and NestJS (Backend) using full OOP architecture.
 
-## 🏗️ สถาปัตยกรรม
+## 🏗️ Architecture
 
-- **Frontend**: NextJS 14 พร้อม Modern UI (White/Blue theme)
-- **Backend**: NestJS แบบ OOP พร้อม In-memory Storage
-- **Database**: In-memory Map สำหรับ POC
-- **API**: RESTful API พร้อม Validation
-- **UI**: TailwindCSS พร้อม Responsive Design
+- **Frontend**: NextJS 14 with Modern UI (White/Blue theme)
+- **Backend**: NestJS with OOP architecture and In-memory Storage
+- **Database**: In-memory Map for POC
+- **API**: RESTful API with Validation
+- **UI**: TailwindCSS with Responsive Design
 
-## 🚀 การติดตั้งและรัน
+## 🚀 Installation and Running
 
-### 1. ติดตั้ง Dependencies
+### 1. Install Dependencies
 ```bash
 npm run install:all
 ```
 
-### 2. รัน Backend (NestJS)
+### 2. Run Backend (NestJS)
 ```bash
 cd server
 npm run start:dev
 ```
-Backend จะรันที่ `http://localhost:3001`
+Backend will run at `http://localhost:3001`
 
-### 3. รัน Frontend (NextJS)
+### 3. Run Frontend (NextJS)
 ```bash
 cd web
 npm run dev
 ```
-Frontend จะรันที่ `http://localhost:3000`
+Frontend will run at `http://localhost:3000`
 
-### 4. รันทั้งสองอย่างพร้อมกัน
+### 4. Run Both Together
 ```bash
 npm run dev
 ```
 
 ## 📊 Features
 
-### ✅ ฟีเจอร์หลัก
-- 💰 เพิ่ม/ลบ/แก้ไข รายรับและรายจ่าย
-- 📈 Dashboard พร้อมสถิติแบบ Real-time
-- 📋 รายการธุรกรรมล่าสุด
-- 🏷️ หมวดหมู่พร้อมเปอร์เซ็นต์การใช้จ่าย
-- 🔍 กรองข้อมูลตามวันที่/หมวดหมู่/ประเภท
-- 📱 Responsive Design สำหรับทุกขนาดหน้าจอ
+### ✅ Main Features
+- 💰 Add/Delete/Edit income and expenses
+- 📈 Dashboard with real-time statistics
+- 📋 Recent transactions list
+- 🏷️ Categories with spending percentages
+- 🔍 Filter by date/category/type
+- 📱 Responsive Design for all screen sizes
 
 ### 🎨 UI/UX
 - Modern Minimal Design
 - White/Blue Theme
 - TailwindCSS Styling
 - Smooth Animations
-- Error Handling และ Loading States
+- Error Handling and Loading States
 
 ## 🛠️ OOP Architecture
 
@@ -71,68 +71,68 @@ server/src/
 ```
 
 ### Design Patterns
-- **Entity Pattern**: Transaction Entity พร้อม methods
-- **Repository Pattern**: แยก data access logic
-- **Service Layer**: Business logic และ validation
-- **DTO Pattern**: Input validation และ transformation
+- **Entity Pattern**: Transaction Entity with methods
+- **Repository Pattern**: Separated data access logic
+- **Service Layer**: Business logic and validation
+- **DTO Pattern**: Input validation and transformation
 - **Dependency Injection**: NestJS DI Container
 
 ## 📡 API Endpoints
 
 ### Transactions
-- `GET /api/transactions` - ดึงรายการทั้งหมด
-- `POST /api/transactions` - เพิ่มรายการใหม่
-- `GET /api/transactions/:id` - ดึงรายการตาม ID
-- `PATCH /api/transactions/:id` - แก้ไขรายการ
-- `DELETE /api/transactions/:id` - ลบรายการ
+- `GET /api/transactions` - Get all transactions
+- `POST /api/transactions` - Create new transaction
+- `GET /api/transactions/:id` - Get transaction by ID
+- `PATCH /api/transactions/:id` - Update transaction
+- `DELETE /api/transactions/:id` - Delete transaction
 
 ### Statistics
-- `GET /api/transactions/statistics` - ดึงสถิติ Dashboard
-- `GET /api/transactions/categories` - ดึงหมวดหมู่ที่กำหนดไว้
+- `GET /api/transactions/statistics` - Get dashboard statistics
+- `GET /api/transactions/categories` - Get predefined categories
 
 ### Filters
-- `GET /api/transactions/filter/date-range` - กรองตามช่วงวันที่
-- `GET /api/transactions/filter/type/:type` - กรองตามประเภท
-- `GET /api/transactions/filter/category/:category` - กรองตามหมวดหมู่
+- `GET /api/transactions/filter/date-range` - Filter by date range
+- `GET /api/transactions/filter/type/:type` - Filter by type
+- `GET /api/transactions/filter/category/:category` - Filter by category
 
-## 🏷️ หมวดหมู่ที่กำหนดไว้
+## 🏷️ Predefined Categories
 
-### รายรับ
-- เงินเดือน
-- โบนัส
-- รายได้เสริม
-- ลงทุน
-- อื่นๆ
+### Income
+- Salary
+- Bonus
+- Side Income
+- Investment
+- Other
 
-### รายจ่าย
-- อาหาร
-- การเดินทาง
-- ช้อปปิ้ง
-- บิลค่าใช้จ่าย
-- บันเทิง
-- สุขภาพ
-- อื่นๆ
+### Expense
+- Food
+- Transportation
+- Shopping
+- Bills
+- Entertainment
+- Health
+- Other
 
-## 📈 Statistics ที่แสดง
+## 📈 Statistics Displayed
 
-- **Total Income**: รวมรายรับทั้งหมด
-- **Total Expense**: รวมรายจ่ายทั้งหมด
-- **Balance**: คงเหลือสุทธิ
-- **Monthly Stats**: สถิติรายเดือน (6 เดือนล่าสุด)
-- **Category Breakdown**: การแบ่งตามหมวดหมู่
-- **Trend Data**: แนวโน้มรายรับ-รายจ่าย
+- **Total Income**: Total income amount
+- **Total Expense**: Total expense amount
+- **Balance**: Net balance
+- **Monthly Stats**: Monthly statistics (last 6 months)
+- **Category Breakdown**: Breakdown by category
+- **Trend Data**: Income-expense trends
 
 ## 🔧 Development
 
 ### Scripts
 ```bash
-npm run dev              # รันทั้ง frontend และ backend
-npm run dev:web          # รันเฉพาะ NextJS
-npm run dev:server       # รันเฉพาะ NestJS
-npm run build            # Build ทั้งหมด
+npm run dev              # Run both frontend and backend
+npm run dev:web          # Run NextJS only
+npm run dev:server       # Run NestJS only
+npm run build            # Build all
 npm run build:web        # Build NextJS
 npm run build:server     # Build NestJS
-npm run install:all      # ติดตั้ง dependencies ทั้งหมด
+npm run install:all      # Install all dependencies
 ```
 
 ### Environment Variables
@@ -140,30 +140,30 @@ npm run install:all      # ติดตั้ง dependencies ทั้งหม
 # Frontend (.env.local)
 NEXT_PUBLIC_API_URL=http://localhost:3001
 
-# Backend (ไม่ต้องการสำหรับ POC)
+# Backend (Not required for POC)
 ```
 
-## 🎯 การใช้งาน
+## 🎯 Usage
 
-1. เข้า `http://localhost:3000`
-2. กด "Add Transaction" เพื่อเพิ่มรายการ
-3. เลือกประเภท (รายรับ/รายจ่าย)
-4. กรอกข้อมูลและบันทึก
-5. ดูสถิติใน Dashboard แบบ Real-time
+1. Go to `http://localhost:3000`
+2. Click "Add Transaction" to add a transaction
+3. Select type (income/expense)
+4. Fill in details and save
+5. View real-time statistics in Dashboard
 
-## 📝 หมายเหตุ
+## 📝 Notes
 
-- ใช้ In-memory Storage สำหรับ POC ข้อมูลจะหายไปเมื่อ restart server
-- สามารถพัฒนาต่อเป็น production โดยเปลี่ยนเป็น database จริง
-- รองรับภาษาไทยเต็มรูปแบบ
-- UI ออกแบบตามหลัก Modern Minimal Design
+- Uses In-memory Storage for POC - data will be lost on server restart
+- Can be upgraded to production by replacing with real database
+- Full Thai language support
+- UI designed following Modern Minimal Design principles
 
 ## 🤝 Contributing
 
-1. Fork โปรเจค
-2. สร้าง feature branch
-3. Commit และ Push
-4. สร้าง Pull Request
+1. Fork the project
+2. Create a feature branch
+3. Commit and Push
+4. Create a Pull Request
 
 ## 📄 License
 
